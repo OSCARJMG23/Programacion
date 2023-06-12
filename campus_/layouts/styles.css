@@ -1,0 +1,44 @@
+html{
+    font-size: 62.5%;
+}
+body{
+    font-size: 16px;
+}
+.container{
+    background-color: darkgray;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem;
+    gap: 20rem;
+    flex-wrap: wrap;
+}
+.item-1{
+    background-color: chartreuse;
+}
+.item-2{
+    background-color: rgb(17, 0, 255);
+    color: white;
+    order: 1;
+}
+.item-3{
+    background-color: rgb(255, 0, 0);
+    flex-basis: 30rem;
+}
+.item-4{
+    background-color: rgb(119, 9, 9);
+    color: white;
+    order: -1;
+}
+.item-5{
+    background-color: rgb(0, 183, 255);
+}
+.item-6{
+    background-color: rgb(255, 0, 221);
+}
+.item-7{
+    background-color: rgb(238, 255, 0);
+}
+.item-8{
+    background-color: rgb(20, 16, 70);
+}

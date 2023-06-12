@@ -1,0 +1,12 @@
+.card {
+    margin-bottom: 20px;
+  }
+  .container {
+    justify-content: center;
+    align-items: center;
+  }
+  .card-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
