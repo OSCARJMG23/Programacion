@@ -1,0 +1,34 @@
+para el correo 
+git config --global user.name "aqui el nombre"
+git config --global user.email "aqui el correo"
+
+para nuevo repositorio
+git init
+
+para ver el estatus
+git status
+
+para agregar 
+git add "nombre opcional del archivo o mejor un punto para cargar todos los archivos"
+
+para inidicar el cambio que se hace
+git commit -m "nombre random"
+
+para ver el historial de cambios
+git log
+
+para modificar un commir anterior
+git checkout (y el codigo del commit 32423b32bv4v324)
+
+para visializar las ramas
+git branch
+
+para volver alguna rama
+git switch +(nombre de donde se quiere volver)
+Tambien con el git checkout +(nombre de donde se quiere volver)
+
+para agregar al git hub
+git remote add original (+link del repositorio)
+
+y por ultimo
+git push origin (+nombre de la rama)
