@@ -1,0 +1,380 @@
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+    margin: 0;
+}
+h1{
+    font-size: 40px;
+    line-height: 2.8em;
+    text-align: center;
+    font-weight: 700;
+}
+p{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+    text-align: center;
+}
+.container{
+    width: 85%;
+    max-width: 850px;
+    margin: 0 auto;
+}
+.header-prin{
+    background: black;
+    color: white;
+    padding: 2rem 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+}
+.header-prin, a{
+    color: white;
+    text-decoration: none;
+}
+.logo-nav-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.logo{
+    letter-spacing: 15px;
+    font-size: 1.4em;
+}
+.menu-icon{
+    display: none;
+}
+.navegacion ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.navegacion ul li{
+    display: inline-block;
+}  
+.navegacion ul li a{
+    display: block;
+    padding: 0.5rem 1rem;
+    transition: all 0.4s linear;
+    border-radius: 5px;
+}
+.navegacion ul li a:hover{
+    background: #4a4a4a ;
+}
+.section{
+    padding-top: 5rem;
+}
+.titu-2{
+    font-size: 40px;
+    line-height: 2.8em;
+    text-align: center;
+    margin-top: 5rem;
+    font-weight: 500;
+}
+.p-cont{
+    margin-top: 0;
+    margin-bottom: 4rem;
+}
+.content-main{
+    width: 85%;
+    max-width: 850px;
+    margin: 0 auto;
+    display: flex;
+    margin-top: -15rem;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #f3f1f500;
+    overflow: hidden;
+}
+.card{
+    margin: 10px;
+    width: 200px;
+    height: 330px;
+    border-radius: 5px;
+    background: var(--i);
+    background-size: cover;
+    box-shadow: 3px 5px 5px rgb(3, 32, 51, .8);
+}
+.content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, .4);
+    opacity: 0;
+    transition: .5s;
+}
+.content h2, a{
+    color: rgba(255, 255, 255, .8);
+    margin: 10px;
+}
+.card:hover .content{
+    opacity: 1;
+
+}
+.p-servi{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+    margin: 0 auto 2rem;
+    
+}
+.contact img {
+    display: flex;
+    width: 610px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 35px;
+}
+h5 {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.contactos{
+    margin-bottom: 65px;
+}
+.p-btn{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+    text-align: center;
+    margin-bottom: 45px;
+}
+.boton{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: transparent;
+    color: black;
+    border: 3px solid black;
+    border-radius: 40px;
+    padding: 15px;
+}
+.boton:hover {
+    color: white;
+    background-color: black;
+}
+.footer{
+    background: #f2f2f2;
+    padding: 4rem 0;
+    text-align: center;
+    margin-top: 6rem;
+}
+@media only screen and (max-widht: 767px) {
+   .menu-icon{
+    display: block;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    position: fixed;
+   }
+    .navegacion{
+    width: 100%;
+    margin-top: 1rem;
+   }
+   .navegacion ul{
+    display: none;
+    
+   }
+   .navegacion ul.show{
+    display: block;
+    
+   }
+    .navegacion ul li{
+        display: block;
+    }  
+    .navegacion ul li a{
+        display: block;
+        padding: 0.5rem 0;
+        transition: all 0.4s linear;
+        border-radius: 5px;
+       
+    }
+    .navegacion ul li a:hover{
+        background: #4a4a4a ;
+    }
+}
+.carousel{
+    padding-top: 125px;
+}
+.carousel-inner{
+    height: 700px;
+}
+
+.titu-3{
+    font-size: 40px;
+    line-height: 2.8em;
+    text-align: center;
+    margin-top: 5rem;
+    font-weight: 500;
+}
+.col{
+    display: flex;
+    justify-content: center;
+    margin-top: 85px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 45px;
+}
+.barra-m{
+    background-color: #000;
+    width: 100%;
+    height: 200px;
+}
+.titu-b{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding-top: 80px;
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 300;
+}
+.card-footer{
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+
+}
+i{
+    color: white;
+}
+img{
+    width: 100%;
+    height: 100%;   
+}
+.img-person{
+    border-radius: 25px;
+}
+footer{
+    background-color: #111;
+}
+.footerContainer{
+    width: 100%;
+    padding: 70px 30px 20px;
+}
+.socialIcons{
+    display: flex;
+    justify-content: center;
+}
+.socialIcons a{
+    text-decoration: none;
+    padding: 10px;
+    background-color: white;
+    margin: 10px ;
+    border-radius: 50%;
+}
+.socialIcons a i{
+    font-size: 2em;
+    color: black;
+    opacity: 0.9;
+}
+.socialIcons a:hover{
+    background-color: #111;
+    transition: 0.5s;
+
+}
+.socialIcons a:hover i{
+    color: white;
+    transition: 0.5s;
+}
+.footerNav{
+    margin: 30px 0;
+}
+.footerNav ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    gap: 35px;
+}
+.footerNav ul li a{
+    color: white;
+    margin: 20%;
+    text-decoration: none;
+    font-size: 1.3em;
+    opacity: 0.7;
+    transition: 0.5s;
+}
+.footerNav ul li a:hover{
+    opacity: 1;
+}
+.footerBottom{
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+}
+.footerBottom p{
+    color: white;
+}
+.designer{
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0px 5px;
+}
+.card-footer{
+    background-color: #000;
+}
+.text-muted{
+    color: rgb(255 255 255 / 75%)!important;
+}
+@media (max-width:700px ){
+    .footerNav ul{
+        flex-direction: column;
+    }
+    .footerNav ul li a{
+        width: 100%;
+        text-align: center;
+        margin: 10px;
+    }
+}
+@media (max-width:700px ){
+    .contact img {
+        display: flex;
+        width: 300px;
+        margin-top: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 35px;
+    }
+}
+@media only screen and (max-widht: 767px){
+    .content-main{
+        width: 85%;
+        max-width: 850px;
+        margin: 0 auto;
+        display: flex;
+        margin-top: -15rem;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: #f3f1f500;
+        overflow: hidden;
+    }
+}
+@media (max-width:800px ){
+    .carrusel-firme img{
+        width: auto;
+        height: 500px;
+        padding-top: 85px;
+    }
+    .carousel-inner{
+        height: 700px;
+    }
+}
+
+.carrusel-firme img{
+    width: auto;
+    height: 720px;
+}

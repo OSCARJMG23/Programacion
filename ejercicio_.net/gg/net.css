@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+
+body{
+    /* display: flex; */
+    justify-content: center;
+}
+.titu-net{
+    padding-right: 50px;
+}
+.letras{
+    font-size: 120px;
+    font-family: 'Patua One', cursive;
+    
+}
+.icon{
+    padding-top: 10px;
+    padding-left: 540px;
+    fill: #fa7807;
+}
+.botones-menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    font-weight: 950;
+    padding-left: 235px;
+    padding-top: 51px;
+    gap: 20px;
+}
+.head{
+    display: flex;
+    background-color: black;
+    position: fixed;
+    width: 100%;
+    height: 200px;
+}
+/* .navg{
+    padding-left: 200px;
+} */
+.content-section{
+    margin-left: auto;
+    margin-top: -1em;
+    margin-bottom: 2em;
+    padding-top: 200px;
+    width: 100%;
+    max-width: 862px;
+    margin-right: auto;
+}
+.titulo{
+    color: orange;
+    display: inline-block;
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 0.4em;
+}
+.txt{
+    color: black;
+}
+.texto, p{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+    margin: 0 auto 2rem;
+    color: #fa7807;
+}
+p{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+a{
+    text-decoration: none;
+    color: #fa7807;
+}
+.grid-container{
+    width: 850px;
+    height: 800px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto auto;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    gap: 15px;
+    padding: 25px;
+}
+.grid-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    border: 5px;
+    border: 2px solid rgb(226, 227, 230);
+    border-radius: 23px;
+}
+.item6{
+    grid-column-start: 1;
+    grid-column-end: 6;
+}
+.item7{
+    grid-column-start: 4;
+    grid-column-end: 6;
+    margin-left: -180px;
+}
+.item8{
+    grid-area: 3/1/4/3;
+    margin-right: 84px;
+}
+.item9{
+    grid-column-start: 1;
+    grid-column-end: 6;
+}
+.item10{
+    grid-column-start: 1;
+    grid-column-end: 6;
+}
+.item11{
+    grid-column-start: 1;
+    grid-column-end: 6;
+}
+.item12{
+    grid-column-start: 1;
+    grid-column-end: 6;
+}
+.item13{
+    grid-area: 1/6/8/6;
+    writing-mode: vertical-rl;
+    font-size: 40px;
+    padding: 3px;
+}

@@ -1,0 +1,48 @@
+.hidden {
+    display: none;
+}
+
+h1{
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  color: #D2F77B;
+  margin-top: -8;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+}
+
+.monto {
+  background-color: #D2F77B;
+}
+.porcent{
+  width: 85px;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  margin-left: 10rem;
+  margin-bottom: 2rem;
+}
+.person{
+  background-color: #D2F77B;
+  margin-left: 5rem;
+  margin-top: 2rem;
+}
+.personas{
+  background-color: #D2F77B;
+}
+.boton{
+  background-color: #D2F77B;
+  color: #212529;
+  margin-top: 1rem;
+  margin-left: 10rem;
+}
+.formulario{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+ /*  border: 1px solid black;
+  margin-left: 25rem;
+  margin-right: 25rem; */
+}

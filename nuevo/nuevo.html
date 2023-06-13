@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Styles-->
+    <link rel="stylesheet" type="text/css" href="nuevo.css">
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>TravelExp</title>
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+</head>
+
+<body>
+
+    <nav>
+        <p>Administrador</p>
+    </nav>
+    <!--Modulos-->
+    <main id="main-modulos" class="main">
+        <div class="modulos">
+            <button id="clientes" class="botonModulo">
+                <img src="img/usuario.png" alt="Clientes" class="img">
+            </button>
+            <h3>Clientes</h3>
+        </div>
+        <div class="modulos">
+            <button id="rutas" class="botonModulo">
+                <img src="img/ruta-de-vuelo.png" alt="Rutas" class="img">
+            </button>
+            <h3>Rutas</h3>
+
+        </div>
+
+        <div class="modulos">
+            <button id="compra-tiquetes" class="botonModulo">
+                <img src="img/tiquete.png" alt="Compra de tiquetes" class="img">
+            </button>
+            <h3>Venta de tiquetes</h3>
+
+        </div>
+
+        <div class="modulos">
+            <button id="puntos" class="botonModulo">
+                <img src="img/estrella.png" alt="Puntos" class="img">
+            </button>
+            <h3>Fidelización</h3>
+
+        </div>
+    </main>
+
+    <!--MODULO CLIENTES (CRUD)-->
+    <div id="modulo-clientes" class="moduloClientes hidden">
+        <h2>Clientes</h2>
+        <div class="buscar">
+            <button type="button" class="btn btn-outline-primary" id="b-agregar-cliente">Agregar+</button>
+            <form id="b-buscar-cliente" class="d-flex" role="search">
+                <label for="buscar">Buscar:</label>
+                <input class="form-control me-2" type="search" aria-label="Search" id="buscar">
+                <button form="b-buscar-cliente" class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+
+        <div class="scroll">
+            <table class="table table">
+                <thead>
+                    <tr>
+                        <th scope="col" style="color: darkblue;">ID</th>
+                        <th scope="col" style="color: darkblue;">Número de identificación</th>
+                        <th scope="col" style="color: darkblue;">Nombre</th>
+                        <th scope="col" style="color: darkblue;">Apellidos</th>
+                        <th scope="col" style="color: darkblue;">Teléfono</th>
+                        <th scope="col" style="color: darkblue;">Correo electrónico</th>
+                        <th scope="col" style="color: darkblue;">Fecha de nacimiento</th>
+                        <th scope="col" style="color: darkblue;">Nacionalidad</th>
+                        <th scope="col" style="color: darkblue;">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody id="template-clientes">
+                    <tr id="1">
+                        <th scope="row">1</th>
+                        <td>100725564</td>
+                        <td>Camilo Andres</td>
+                        <td>Figueroa Rojas</td>
+                        <td>3045125693</td>
+                        <td>jp@gmail.com</td>
+                        <td>12/04/1997</td>
+                        <td>Colombia</td>
+                        <td class="">
+                            <button type="button" class="btn btn-warning bi bi-pencil-square"
+                                style="color: rgb(255, 255, 255);"></button>
+                            <button type="button" class="btn btn-danger bi bi-trash"></button>
+                        </td>
+                    </tr>
+
+                    <tr id="2">
+                        <th scope="row">2</th>
+                        <td>100725564</td>
+                        <td>Camilo Andres</td>
+                        <td>Figueroa Rojas</td>
+                        <td>3045125693</td>
+                        <td>jp@gmail.com</td>
+                        <td>12/04/1997</td>
+                        <td>Colombia</td>
+                        <td class="editDelete">
+
+                            <button type="button" class="btn btn-warning bi bi-pencil-square"
+                                style="color: rgb(255, 255, 255);"></button>
+                            <button type="button" class="btn btn-danger bi  bi-trash"></button>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--Botones modulo Clientes-->
+    <div id="agregar-cliente" class="agregarCliente moduloClientes hidden">
+        <form id="form-agregar-cliente" class="form" data-bs-theme="dark">
+            <h4>Nuevo cliente</h4>
+            <button id="b-volver-cliente" type="button" class="btn-close" aria-label="Close"
+                style="color: white;"></button>
+
+            <label for="id">Número de identificación:</label>
+            <input type="number" id="id" required>
+
+            <label for="nombre">Nombre: </label>
+            <input type="text" id="nombre" required>
+
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" required>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="number" id="telefono" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="fechaNac">Fecha de nacimiento:</label>
+            <input type="text" id="fechaNac" required>
+
+            <label for="nacionalidad">Nacionalidad:</label>
+            <input type="text" id="nacionalidad" required>
+
+            <button id="b-guardar-cliente" form="form-agregar-cliente" class="btn btn-success" type="submit"
+                style="grid-column-start: 1; grid-column-end: 3; margin: auto;">Guardar</button>
+        </form>
+    </div>
+    <!--Editar Cliente-->
+    <div id="editar-cliente" class="editarCliente moduloClientes hidden">
+        <form id="form-editar-cliente" class="form" data-bs-theme="dark">
+            <h4>Editar cliente</h4>
+            <button id="b-volver-cliente2" type="button" class="btn-close" aria-label="Close"
+                style="color: white;"></button>
+
+            <label for="idE">Número de identificación:</label>
+            <input type="number" id="idE" readonly>
+
+            <label for="nombreE">Nombre: </label>
+            <input type="text" id="nombreE" required>
+
+            <label for="apellidosE">Apellidos:</label>
+            <input type="text" id="apellidosE" required>
+
+            <label for="telefonoE">Teléfono:</label>
+            <input type="number" id="telefonoE" required>
+
+            <label for="emailE">Email:</label>
+            <input type="email" id="emailE" required>
+
+            <label for="fechaNacE">Fecha de nacimiento:</label>
+            <input type="text" id="fechaNacE" required>
+
+            <label for="nacionalidadE">Nacionalidad:</label>
+            <input type="text" id="nacionalidadE" required>
+
+            <button id="b-guardar-cliente" form="form-editar-cliente" class="btn btn-warning" type="submit"
+                style="color: white;grid-column-start: 1; grid-column-end: 3; margin: auto;">Editar</button>
+        </form>
+    </div>
+    <!--MODULO RUTAS-->
+    <div id="modulo-rutas" class="moduloRutas hidden">
+        <h2>Rutas</h2>
+        <div class="contedorBotonRutas">
+            <button type="button" class="btn btn-outline-primary" id="b-agregar-ruta">Agregar+</button>
+        </div>
+        <div id="lista-rutas" class="rutas">
+            <div id="1" class="tarjetaRuta">
+                <h4>Bucaramanga-Bogotá</h4>
+                <img src="img/ruta.png" alt="destino" class="img">
+                <p><b>Ciudad de origen: </b>Bucarmanga</p>
+                <p><b>Ciudad de destino:</b> Bogotá</p>
+                <p>$125.000</p>
+                <div class="estrella"><img src="img/estrella2.png" alt="Puntos" class="img-puntos"></div>
+                <p><b>Puntos:</b>30</p>
+
+                <button class="eliminarRuta">
+                    <img src="img/eliminar.png" alt="eliminar" class="imgBorrarRuta">
+                </button>
+            </div>
+
+            <div id="2" class="tarjetaRuta">
+                <h4>Bucaramanga-Bogotá</h4>
+                <img src="img/ruta.png" alt="Puntos" class="img">
+                <p><b>Ciudad de origen: </b>Bucarmanga</p>
+                <p><b>Ciudad de destino:</b> Bogotá</p>
+                <p>$125.000</p>
+                <div class="estrella"><img src="img/estrella2.png" alt="Puntos" class="img-puntos"></div>
+                <p><b>Puntos:</b>30</p>
+
+                <button class="eliminarRuta">
+                    <img src="img/eliminar.png" alt="eliminar" class="imgBorrarRuta">
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--Formulario Agregar Ruta-->
+    <div id="agregar-ruta" class="agregarRuta hidden">
+        <form id="form-agregar-ruta" class="form" data-bs-theme="dark">
+            <h4>Agregar Ruta</h4>
+            <button id="b-volver-ruta" type="button" class="btn-close" aria-label="Close"
+                style="color: white;"></button>
+
+            <label for="nombre-ruta">Nombre de la ruta:</label>
+            <input type="text" id="nombre-ruta" required>
+
+            <label for="valorT-ruta">Valor Tiquete:</label>
+            <input type="number" id="valorT-ruta">
+
+            <label for="origen-ruta">Ciudad de Origen:</label>
+            <input type="text" id="origen-ruta">
+
+            <label for="destino-ruta">Ciudad de Destino:</label>
+            <input type="text" id="destino-ruta">
+
+            <label for="puntos-ruta">Puntos por fidelización:</label>
+            <input type="number" id="puntos-ruta">
+
+            <button id="b-guardar-ruta" form="form-agregar-ruta" class="btn btn-success" type="submit"
+                style="color: white;grid-column-start: 1; grid-column-end: 3; margin: auto;">Guardar</button>
+        </form>
+    </div>
+    </div>
+
+    <!--COMPRA DE TIQUETES-->
+    <div id="modulo-compra" class="moduloCompra hidden">
+        <h2>Compra de Tiquetes</h2>
+        <div class="buscar">
+            <form id="b-buscar-clienteC" class="d-flex" role="search">
+                <label for="buscarC">Buscar:</label>
+                <input class="form-control me-2" type="search" aria-label="Search" id="buscarC">
+                <button form="b-buscar-clienteC" class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+
+        <div class="scroll">
+            <table class="table table">
+                <thead>
+                    <tr>
+                        <th scope="col" style="color: darkblue;">ID</th>
+                        <th scope="col" style="color: darkblue;">Número de identificación</th>
+                        <th scope="col" style="color: darkblue;">Nombre</th>
+                        <th scope="col" style="color: darkblue;">Apellidos</th>
+                        <th scope="col" style="color: darkblue;">Teléfono</th>
+                        <th scope="col" style="color: darkblue;">Correo electrónico</th>
+                        <th scope="col" style="color: darkblue;">Fecha de nacimiento</th>
+                        <th scope="col" style="color: darkblue;">Nacionalidad</th>
+                        <th scope="col" style="color: darkblue;">Seleccionar</th>
+                    </tr>
+                </thead>
+                <tbody id="template-clientesC">
+                        <tr id="1">
+                            <th scope="row">1</th>
+                            <td>100725564</td>
+                            <td>Camilo Andres</td>
+                            <td>Figueroa Rojas</td>
+                            <td>3045125693</td>
+                            <td>jp@gmail.com</td>
+                            <td>12/04/1997</td>
+                            <td>Colombia</td>
+                            <td class="seleccionarRadio">
+                                <p><input type="radio" name="seleccionar"></p>
+                            </td>
+                        </tr>
+                        <tr id="2">
+                            <th scope="row">2</th>
+                            <td>100725564</td>
+                            <td>Camila Andres</td>
+                            <td>Figueroa Rojas</td>
+                            <td>3045125693</td>
+                            <td>jp@gmail.com</td>
+                            <td>12/04/1997</td>
+                            <td>ColombiaAA</td>
+                            <td class="seleccionarRadio">
+                                <p><input type="radio" name="seleccionar"></p>
+                            </td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+        <div class="seleccion">
+            <button id="botonSeleccionar"type="button" class="btn btn-primary" type="submit">Realizar Compra</button>
+        </div>
+    </form>
+    </div>
+
+
+    <!--JavaScript-->
+    <script src="nuevo.js"></script>
+    <!--Libreria para generar ID unicos-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.7/uuid.min.js"></script>
+    <!--Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <!--SweetAlert2-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+
+.header-prin{
+    background: black;
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+}
+.header-prin, a{
+    color: white;
+    text-decoration: none;
+}
+.logo-nav-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.logo{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    letter-spacing: 15px;
+    font-size: 1.5em;
+    text-decoration: none;
+    color: rgba(255, 255, 255, .8);
+}
+.boton-m{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-decoration: none;
+    color: rgba(255, 255, 255, .8);
+    font-size: 20px;
+}
+.menu-icon{
+    display: none;
+}
+.navegacion ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.navegacion ul li{
+    display: inline-block;
+}  
+.navegacion ul li a{
+    display: block;
+    padding: 0.5rem 1rem;
+    transition: all 0.4s linear;
+    border-radius: 5px;
+}
+.navegacion ul li a:hover{
+    background: #4a4a4a ;
+}
+
+footer{
+    background-color: #111;
+}
+.footerContainer{
+    width: 100%;
+    padding: 70px 30px 20px;
+}
+.socialIcons{
+    display: flex;
+    justify-content: center;
+}
+.socialIcons a{
+    text-decoration: none;
+    padding: 10px;
+    background-color: white;
+    margin: 10px ;
+    border-radius: 50%;
+}
+.socialIcons a i{
+    font-size: 2em;
+    color: black;
+    opacity: 0.9;
+}
+.socialIcons a:hover{
+    background-color: #111;
+    transition: 0.5s;
+
+}
+.socialIcons a:hover i{
+    color: white;
+    transition: 0.5s;
+}
+.footerNav{
+    margin: 30px 0;
+}
+.footerNav ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    gap: 35px;
+}
+.footerNav ul li a{
+    color: white;
+    margin: 20%;
+    text-decoration: none;
+    font-size: 1.3em;
+    opacity: 0.7;
+    transition: 0.5s;
+}
+.footerNav ul li a:hover{
+    opacity: 1;
+}
+.footerBottom{
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+}
+.footerBottom p{
+    color: white;
+}
+.designer{
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0px 5px;
+}
+.card-footer{
+    background-color: #000;
+}
+.text-muted{
+    color: rgb(255 255 255 / 75%)!important;
+}
+@media (max-width:700px ){
+    .footerNav ul{
+        flex-direction: column;
+    }
+    .footerNav ul li a{
+        width: 100%;
+        text-align: center;
+        margin: 10px;
+    }
+}
+
+.carousel{
+    padding-top: 120px;
+}
+.carousel-inner{
+    height: 900px;
+}
+
+.titulo{
+    font-family: 'Shrikhand', cursive;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 100px;
+    margin-top: 2%;
+}
+
+.subtitulo{
+    font-family: 'Shrikhand', cursive;
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to right, #000000, #9f846f, #faa454);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 40px;
+    padding-top: 3%;
+}
+
+.servis{
+    font-family: 'Shrikhand', cursive;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    margin-bottom: 3%;
+}
+
+.ser{
+    background-image: linear-gradient(to right, #000000, #9f846f, #faa454);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.somos{
+    padding-top: 3%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+    margin-left: 30%;
+    font-size: 25px;
+    font-weight: 600;
+    padding-bottom: 3%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.servicios{
+    display: flex;
+    justify-content: center;
+    gap: 4%;
+    margin-bottom: 7%;
+    margin-top: 7%;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.servicios p, a{
+    color: rgba(255,255,255,.8);
+}
+
+.servicios p, a:hover{
+    opacity: 1;
+}
+
+.text{
+    font-family: 'Shrikhand', cursive;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.dentr{
+    border-radius: 10%;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+    object-fit: cover;
+}
+
+.dentr:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.texto{
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 10px;
+    position: absolute;
+    top: 10%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.container p{
+    font-size: 3rem;
+    color: white;
+    position: absolute;
+    margin-top: 50%;
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.coti{
+    width: 100%;
+    max-width: 1200px;
+    height: 430px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+.coti .card{
+    font-family: 'Shrikhand', cursive;
+    color: rgb(185, 185, 185);
+    width: 330px;
+    height: 430px;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgba(255, 102, 0, 0.2);
+    overflow: hidden;
+    margin: 20px;
+    text-align: center;
+    transition: all 0.25s;
+}
+
+.coti .card:hover{
+    transform: translateY(-15px);
+    box-shadow: 0 12px162px rgba(0, 0, 0, 0.2);
+}
+
+.coti .card img{
+    width: 330px;
+    height: 220px;
+}
+
+.coti .card h5{
+    font-weight: 600;
+}
+
+.coti .card p{
+    padding: 0 1rem;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.coti .card a{
+    font-weight: 500;
+    text-decoration: none;
+    color: rgba(185, 185, 185, 0.877);
+}
+
+.coti .card a:hover{
+    background-color: rgb(236, 234, 234);
+    border-radius: 6px;
+}
+
+.frecuente{
+    font-family: 'Shrikhand', cursive;
+    font-size: 40px;
+    padding-top: 5%;
+    padding-bottom: 2%;
+    display: flex;
+    justify-content: center;
+}
+
+.accordion{
+    width: 30%;
+    margin-left: 35%;
+    margin-bottom: 2%;
+}

@@ -1,0 +1,6 @@
+https://mastery.games/flexboxzombies/
+https://platzi.com/blog/css-grid-cheat-sheet-contenedores/
+https://cssreference.io/
+https://htmlcolorcodes.com/
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+https://fonts.google.com/?query=ubuntu&category=Sans+Serif

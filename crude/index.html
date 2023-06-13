@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="col-lg-5 col-md-10 col-sm-12">
+        <div class="form-box px-5 py-4">
+            <form id="formulario">
+                <h2 class="text-center mb-4">Registrar Cliente</h2>
+                <input type="text" name="cedula" id="cedula" placeholder="Numero Identificación" class="form-control mb-3">
+                <input type="text" name="nombres" id="nombres" placeholder="Nombres" class="form-control mb-3" ><label class="validation-error hide" id="fullNameValidationError" style="display: none;">This field is required.</label>
+                <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos" class="form-control mb-3">
+                <input type="number" name="telefono" id="telefono" placeholder="Telefono" class="form-control mb-3">
+<!--                         <select class="form-select mb-3">
+                    <option>City</option>
+                    <option >Gungla Pakistan</option>
+                </select> -->
+                <input type="email" name="correo" id="correo" placeholder="E-mail" class="form-control mb-3">
+                <input type="date" name="nacimiento" id="nacimiento" placeholder="Fecha Nacimiento" class="form-control mb-3">
+                <input type="text" name="nacionalidad" id="nacionalidad" placeholder="Nacionalidad" class="form-control mb-3">
+                <!-- <input type="password" name="" placeholder="password" class="form-control mb-3"> -->
+                <button class="register-btn form-control">Registro</button>
+                <div >
+                  <button id="btnConsult" class="register-btn form-control mt-4 btnCon">Consultar</button>
+                </div>
+            </form>
+
+            <table class="list editT" id="listaClientes" style="margin-top: 3rem; color: white;">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>N° Identificación</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Teléfono</th>
+                        <th>E-mail</th>
+                        <th>F° Nacimiento</th>
+                        <th>Nacionalidad</th>
+                        <th>Opción</th>
+                    </tr>
+                </thead>
+                <tbody class="">
+        
+                </tbody>
+            </table> 
+            <script src="code.js"></script>
+</body>
+</html>
