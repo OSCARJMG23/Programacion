@@ -161,7 +161,7 @@ function eliminarCLiente(index){
 
     editando = true;
 } */
-
+//sadsadsadsadad
 /* function editarCliente(index) {
     var cliente = listaClientes[index];
     cedula.value = cliente.cedulaN;
