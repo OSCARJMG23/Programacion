@@ -1,8 +1,29 @@
-var selectedRow = null
+
 const botonClient = document.getElementById('b-clien')
 const secClientes = document.getElementById('sec-clientes')
 const botonConsult = document.getElementById('btnConsult')
 const listaClien = document.getElementById('listaClientes')
+
+//Buscador
+const buscador = document.getElementById('buscador')
+buscador.addEventListener('input', e => {
+    const textoBuscado = e.target.value.toLowerCase(); //.tolowerCase()
+
+    document.querySelectorAll('#filaPasajero').forEach(fila => {
+        const primeraCelda =  fila.querySelector('#identiElem');
+        const nonmbreBus = fila.querySelector('#idNombres')
+        console.log(primeraCelda);
+      const textoCelda = primeraCelda.textContent.toLowerCase();
+      const textoNombre = nonmbreBus.textContent.toLowerCase();
+
+      if (textoCelda.includes(textoBuscado)||textoNombre.includes(textoBuscado)) {
+        fila.classList.remove('filtro');
+      } else {
+        fila.classList.add('filtro');
+      }
+    });
+  });
+
 
 botonClient.addEventListener('click',function(){
     secClientes.classList.remove('edit')
@@ -11,132 +32,221 @@ botonClient.addEventListener('click',function(){
 botonConsult.addEventListener('click',function(){
     listaClien.classList.remove('editT')
 })
-const formulario = document.getElementById('formulario')
 
-function onFormSubmit(){
-    if(validate()){
-        var formData = readFormData();
-        if(selectedRow == null)
-            insertNewRecord(formData);
-            else
-            updateRecord(formData)
-        resetform();
-    }
-}
-var listaClientess = []
 
-var contador = 1;
+var listaClientes = [];
+let editando = false;
+let indiceEditando = -1;
 
-function readFormData(){
-    var formData = {};
-    
-    formData['id'] = contador
-    formData['cedula'] = document.getElementById('cedula').value;
-    formData['nombres'] = document.getElementById('nombres').value;
-    formData['apellidos'] = document.getElementById('apellidos').value;
-    formData['telefono'] = document.getElementById('telefono').value;
-    formData['correo'] = document.getElementById('correo').value;
-    formData['nacimiento'] = document.getElementById('nacimiento').value;
-    formData['nacionalidad'] = document.getElementById('nacionalidad').value;
-    formData['pF'] = 0
-    formulario.reset()
-    listaClientess.push(formData)
-    console.log(formData)
-    console.log(listaClientess)
-    crearSelect()
-    return formData;
-    
-}
+const formulario = document.getElementById('formulario');
+const cedula = document.getElementById('cedula');
+const nombres = document.getElementById('nombres');
+const apellidos = document.getElementById('apellidos');
+const telefono = document.getElementById('telefono');
+const correo = document.getElementById('correo');
+const nacimiento = document.getElementById('nacimiento');
+const nacionalidad = document.getElementById('nacionalidad');
+const tablaPadre = document.getElementById('padreClientes');
+const botonSubmit = formulario.querySelector('button[type="submit"]');
 
-function insertNewRecord(data){
-    var table = document.getElementById('listaClientes').getElementsByTagName('tbody')[0];
-    var newRow = table.insertRow(table.length);
-    cell1 = newRow.insertCell(0);
-    cell1.innerHTML = data.id;
-    cell2 = newRow.insertCell(1);
-    cell2.innerHTML = data.cedula;
-    cell3 = newRow.insertCell(2);
-    cell3.innerHTML = data.nombres;
-    cell4 = newRow.insertCell(3);
-    cell4.innerHTML = data.apellidos;
-    cell5 = newRow.insertCell(4);
-    cell5.innerHTML = data.telefono;
-    cell6 = newRow.insertCell(5);
-    cell6.innerHTML = data.correo;
-    cell7 = newRow.insertCell(6);
-    cell7.innerHTML = data.nacimiento;
-    cell8 = newRow.insertCell(7);
-    cell8.innerHTML = data.nacionalidad;
-    cell9 = newRow.insertCell(8);
-    cell9.innerHTML = `<a onClick="onEdit(this)" class="btn" >Edit<a/> 
-                       <a onClick="onDelete(this)" class="btn">Elim<a/>`;
-    contador++
-}
-function resetform(){
-    document.getElementById('cedula').value = ''
-    document.getElementById('nombres').value = ''
-    document.getElementById('apellidos').value = ''
-    document.getElementById('telefono').value = ''
-    document.getElementById('correo').value = ''
-    document.getElementById('nacimiento').value = ''
-    document.getElementById('nacionalidad').value = ''
-    selectedRow = null
-}
-function onEdit(td){
-   selectedRow = td.parentElement.parentElement;
-   /* document.getElementById('fullName').value = selectedRow.cells[0].innerHTML; */
-   document.getElementById('cedula').value = selectedRow.cells[1].innerHTML;
-   document.getElementById('nombres').value = selectedRow.cells[2].innerHTML;
-   document.getElementById('apellidos').value = selectedRow.cells[3].innerHTML;
-   document.getElementById('telefono').value = selectedRow.cells[4].innerHTML;
-   document.getElementById('correo').value = selectedRow.cells[5].innerHTML;
-   document.getElementById('nacimiento').value = selectedRow.cells[6].innerHTML;
-   document.getElementById('nacionalidad').value = selectedRow.cells[7].innerHTML;
-   crearSelect()
-   //volver a llamar la funcion de tabla puntos
-}
-function updateRecord(formData){
-    /* selectedRow.cells[0].innerHTML = formData.fullName; */
-    selectedRow.cells[1].innerHTML = formData.cedula;
-    selectedRow.cells[2].innerHTML = formData.nombres;
-    selectedRow.cells[3].innerHTML = formData.apellidos;
-    selectedRow.cells[4].innerHTML = formData.telefono;
-    selectedRow.cells[5].innerHTML = formData.correo;
-    selectedRow.cells[6].innerHTML = formData.nacimiento;
-    selectedRow.cells[7].innerHTML = formData.nacionalidad;
-
-}
-function onDelete(td){
-    if(confirm('Esta seguro de eliminar este registro?')){
-        row = td.parentElement.parentElement;
-        document.getElementById("listaClientes").deleteRow(row.rowIndex);
-        console.log(document.getElementById("listaClientes").deleteRow(row.rowIndex))
-        resetform();
-    }
-    crearSelect()   
-    //volver a llamar la funcion de tabla puntos
-}
-function validate(){
-    isValid = true
-    if(document.getElementById('nombres').value == ''){
-        isValid = false
-        document.getElementById("fullNameValidationError").classList.remove("hide");
-    }else{
-        isValid = true;
-        if(!document.getElementById("fullNameValidationError").classList.contains("hide"))
-        document.getElementById("fullNameValidationError").classList.add("hide");
-    }
-
-    return isValid
-}
-
-formulario.addEventListener('submit', event=>{
+formulario.addEventListener('submit', function(event) {
     event.preventDefault();
-    validate();
-    onFormSubmit();
-    formulario.reset()
+
+    if (editando) {
+        actualizarCliente();
+    } else {
+        agregarCliente();
+    }
+
+    formulario.reset();
     botonConsult.classList.remove('btnCon')
-})
+});
+
+function agregarCliente() {
+    var nuevoCliente = {};
+    nuevoCliente.cedulaN = cedula.value;
+    nuevoCliente.nombresN = nombres.value;
+    nuevoCliente.apellidosN = apellidos.value;
+    nuevoCliente.telefonoN = telefono.value;
+    nuevoCliente.correoN = correo.value;
+    nuevoCliente.nacimientoN = nacimiento.value;
+    nuevoCliente.nacionalidadN = nacionalidad.value;
+    nuevoCliente.pF = 0
+
+    listaClientes.push(nuevoCliente);
+    listarDatos();
+    crearSelect()
+}
+
+function actualizarCliente() {
+    var clienteEditando = listaClientes[indiceEditando];
+    clienteEditando.cedulaN = cedula.value;
+    clienteEditando.nombresN = nombres.value;
+    clienteEditando.apellidosN = apellidos.value;
+    clienteEditando.telefonoN = telefono.value;
+    clienteEditando.correoN = correo.value;
+    clienteEditando.nacimientoN = nacimiento.value;
+    clienteEditando.nacionalidadN = nacionalidad.value;
+
+    listarDatos();
+    editarFin();
+    crearSelect()
+}
+
+function editarCliente(index) {
+    indiceEditando = index;
+    var clienteEditando = listaClientes[indiceEditando];
+
+    cedula.value = clienteEditando.cedulaN;
+    nombres.value = clienteEditando.nombresN;
+    apellidos.value = clienteEditando.apellidosN;
+    telefono.value = clienteEditando.telefonoN;
+    correo.value = clienteEditando.correoN;
+    nacimiento.value = clienteEditando.nacimientoN;
+    nacionalidad.value = clienteEditando.nacionalidadN;
+
+    botonSubmit.innerHTML = 'Actualizar';
+    editando = true;
+}
+
+function editarFin() {
+    indiceEditando = -1;
+    botonSubmit.innerHTML = 'Registrar';
+    editando = false;
+}
+
+
+/* function listarDatos() {
+    tablaPadre.innerHTML = '';
+
+    listaClientes.forEach((e, index) => {
+        let hijo = document.createElement('tr');
+        hijo.classList.add('table-secondary', 'tabla');
+        hijo.id= 'filaPasajero'
+
+        let numero = document.createElement('td');
+        numero.textContent = `${e.numeroN}`;
+        hijo.appendChild(numero);
+
+        let cedulaCelda = document.createElement('td');
+        cedulaCelda.textContent = `${e.cedulaN}`;
+        hijo.appendChild(cedulaCelda);
+        cedulaCelda.id = 'identiElem';
+
+        let nombresCelda = document.createElement('td');
+        nombresCelda.textContent = `${e.nombresN}`;
+        hijo.appendChild(nombresCelda);
+        nombresCelda.id = 'idNombres';
+
+        let apellidosCelda = document.createElement('td');
+        apellidosCelda.textContent = `${e.apellidosN}`;
+        hijo.appendChild(apellidosCelda);
+
+        let telefonoCelda = document.createElement('td');
+        telefonoCelda.textContent = `${e.telefonoN}`;
+        hijo.appendChild(telefonoCelda);
+
+        let correoCelda = document.createElement('td');
+        correoCelda.textContent = `${e.correoN}`;
+        hijo.appendChild(correoCelda);
+
+        let nacimientoCelda = document.createElement('td');
+        nacimientoCelda.textContent = `${e.nacimientoN}`;
+        hijo.appendChild(nacimientoCelda);
+
+        let nacionalidadCelda = document.createElement('td');
+        nacionalidadCelda.textContent = `${e.nacionalidadN}`;
+        hijo.appendChild(nacionalidadCelda);
+
+        let opcionB = document.createElement('td');
+        let botonEditar = document.createElement('button');
+        botonEditar.textContent = 'Editar';
+        botonEditar.classList.add('btn', 'btn-primary');
+        let botonEliminar = document.createElement('button');
+        botonEliminar.textContent = 'Eliminar';
+        botonEliminar.classList.add('btn', 'btn-danger');
+        opcionB.appendChild(botonEditar);
+        opcionB.appendChild(botonEliminar);
+        hijo.appendChild(opcionB);
+
+        tablaPadre.appendChild(hijo);
+
+        botonEliminar.addEventListener('click', function() {
+            eliminarCliente(index);
+        });
+        botonEditar.addEventListener('click', function() {
+            editarCliente(index);
+        });
+    });
+} */
+function listarDatos() {
+    tablaPadre.innerHTML = '';
+
+    listaClientes.forEach((e, index) => {
+        let hijo = document.createElement('tr');
+        hijo.classList.add('table-secondary', 'tabla');
+        hijo.id = 'filaPasajero';
+
+        let numero = document.createElement('td');
+        numero.textContent = index + 1;
+        hijo.appendChild(numero);
+
+        let cedulaCelda = document.createElement('td');
+        cedulaCelda.textContent = e.cedulaN;
+        hijo.appendChild(cedulaCelda);
+        cedulaCelda.id = 'identiElem';
+
+        let nombresCelda = document.createElement('td');
+        nombresCelda.textContent = e.nombresN;
+        hijo.appendChild(nombresCelda);
+        nombresCelda.id = 'idNombres';
+
+        let apellidosCelda = document.createElement('td');
+        apellidosCelda.textContent = e.apellidosN;
+        hijo.appendChild(apellidosCelda);
+
+        let telefonoCelda = document.createElement('td');
+        telefonoCelda.textContent = e.telefonoN;
+        hijo.appendChild(telefonoCelda);
+
+        let correoCelda = document.createElement('td');
+        correoCelda.textContent = e.correoN;
+        hijo.appendChild(correoCelda);
+
+        let nacimientoCelda = document.createElement('td');
+        nacimientoCelda.textContent = e.nacimientoN;
+        hijo.appendChild(nacimientoCelda);
+
+        let nacionalidadCelda = document.createElement('td');
+        nacionalidadCelda.textContent = e.nacionalidadN;
+        hijo.appendChild(nacionalidadCelda);
+
+        let opcionB = document.createElement('td');
+        botonEditar = document.createElement('button');
+        botonEditar.textContent = 'Editar';
+        botonEditar.classList.add('btn', 'btn-primary');
+        botonEliminar = document.createElement('button');
+        botonEliminar.textContent = 'Eliminar';
+        botonEliminar.classList.add('btn', 'btn-danger');
+        opcionB.appendChild(botonEditar);
+        opcionB.appendChild(botonEliminar);
+        hijo.appendChild(opcionB);
+
+        tablaPadre.appendChild(hijo);
+
+        botonEliminar.addEventListener('click', function() {
+            eliminarCliente(index);
+        });
+        botonEditar.addEventListener('click', function() {
+            editarCliente(index);
+        });
+    });
+}
+function eliminarCliente(index) {
+    listaClientes.splice(index, 1);
+    listarDatos();
+    crearSelect()
+}
 
 //Rutas
 const botonTarget = document.getElementById('botonTarget')
@@ -298,9 +408,9 @@ formCom.addEventListener('submit', function(event){
             puntosF = parseFloat(ruta.puntosRuta)
         }
     }
-    for(let cliente of listaClientess){
-        if(cliente.nombres == selectP.value){
-            cedula = cliente.cedula
+    for(let cliente of listaClientes){
+        if(cliente.nombresN == selectP.value){
+            cedula = cliente.cedulaN
             cliente.pF += puntosF
         }
     }
@@ -318,12 +428,12 @@ formCom.addEventListener('submit', function(event){
 
 function crearSelect(){
     selectP.innerHTML = '<option selected>Pasajero</option>'
-    for(let cliente of listaClientess){
-        if(listaClientess.length === 0){
+    for(let cliente of listaClientes){
+        if(listaClientes.length === 0){
             return
         }
         const crearOP = document.createElement('option')
-        crearOP.textContent = cliente.nombres
+        crearOP.textContent = cliente.nombresN
         selectP.appendChild(crearOP)
     }
 }
@@ -346,11 +456,11 @@ const padrePu = document.getElementById('puntos-Clientes')
 function puntosCliente(){
     padrePu.innerHTML = ''
 
-    for(let cliente of listaClientess){
+    for(let cliente of listaClientes){
         if(cliente.pF !=0){
             const filaPuntos = document.createElement('tr')
-            filaPuntos.innerHTML = `<td>${cliente.nombres}</td>
-            <td>${cliente.apellidos}</td>
+            filaPuntos.innerHTML = `<td>${cliente.nombresN}</td>
+            <td>${cliente.apellidosN}</td>
             <td>${cliente.pF}</td>`
             padrePu.appendChild(filaPuntos)
         }

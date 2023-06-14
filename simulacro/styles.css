@@ -83,6 +83,9 @@
 .secR{
     margin-bottom: 2rem;
 }
+.filtro{
+    display: none;
+}
 .tituR{
     display: flex;
     text-align: center;

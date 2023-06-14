@@ -193,6 +193,7 @@ function eliminarCLiente(index){
 
     editando = true;
 } */
+botonConsult.classList.remove('btnCon')
 var listaClientes = [];
 let editando = false;
 let indiceEditando = -1;

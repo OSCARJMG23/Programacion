@@ -111,13 +111,14 @@
                         <input type="date" name="nacimiento" id="nacimiento" placeholder="Fecha Nacimiento" class="form-control mb-3">
                         <input type="text" name="nacionalidad" id="nacionalidad" placeholder="Nacionalidad" class="form-control mb-3">
                         <!-- <input type="password" name="" placeholder="password" class="form-control mb-3"> -->
-                        <button class="register-btn form-control">Registro</button>
+                        <button class="register-btn form-control" type="submit">Registro</button>
                         <div >
                           <button id="btnConsult" class="register-btn form-control mt-4 btnCon">Consultar</button>
                         </div>
                     </form>
                 </div>
             </div>
+            <input type="text" placeholder="Buscar" id="buscador">
             <div class="table-responsive">
               <table class="table  list editT" id="listaClientes" style="margin-top: 3rem; color: white;">
                 <thead>
@@ -133,7 +134,7 @@
                         <th>Opción</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="padreClientes">
         
                 </tbody>
             </table>  
