@@ -73,7 +73,7 @@ function agregarCliente() {
     nuevoCliente.nacionalidadN = nacionalidad.value;
     nuevoCliente.pF = 0
 
-    listaClientes.push(nuevoCliente);
+    listaClientes.push(nuevoCliente)
     listarDatos();
     crearSelect()
 }
@@ -91,6 +91,7 @@ function actualizarCliente() {
     listarDatos();
     editarFin();
     crearSelect()
+    puntosCliente()
 }
 
 function editarCliente(index) {
@@ -246,6 +247,7 @@ function eliminarCliente(index) {
     listaClientes.splice(index, 1);
     listarDatos();
     crearSelect()
+    puntosCliente()
 }
 
 //Rutas
@@ -406,7 +408,7 @@ formCom.addEventListener('submit', function(event){
         if(ruta.nombreRuta == selectR.value){
             valorR = parseFloat(ruta.valorTiquete)
             puntosF = parseFloat(ruta.puntosRuta)
-        }
+        }   
     }
     for(let cliente of listaClientes){
         if(cliente.nombresN == selectP.value){
