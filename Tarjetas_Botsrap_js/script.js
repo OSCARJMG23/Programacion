@@ -8,9 +8,10 @@ const tarjetasServicios = document.getElementById('lista-servicios')
 
 formularioServi.addEventListener('submit', function(event){
     event.preventDefault()
-
+    alertConfirmacion()
     agregarServicio()
     formularioServi.reset()
+
 })
 
 var servicios = []
@@ -33,7 +34,7 @@ function listarSevicios(){
     servicios.forEach((e, index)=>{
         let tarjeta = `<div class="tarjetaRuta">
         <h4>${e.nombreServiN}</h4>
-        <img src="icono_lavado.png" alt="destino" class="img-avion">
+        <img src="icono-lavado-m.png" alt="destino" class="img-avion">
         <p><b>Descripción:</b> ${e.descripSN}</p>
         <p>$${e.valorServiN}</p>
         <div class="estrella"><img src="estrella.png" alt="Puntos" class="img-puntos"></div>
@@ -51,12 +52,38 @@ function listarSevicios(){
 
     Array.from(eliminarServicios).forEach((boton, index) => {
       boton.addEventListener('click', function() {
+        /* alertEliminar() */
         eliminarServicio(index);
       });
     });
 }
 
 function eliminarServicio(index){
-    servicios.splice(index, 1)
-    listarSevicios()
+    swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this imaginary file!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal("Poof! Your imaginary file has been deleted!", {
+            icon: "success",
+          });
+          servicios.splice(index, 1)
+          listarSevicios()
+        } else {
+          swal("Your imaginary file is safe!");
+        }
+      });
+    
+}
+
+function alertConfirmacion(){
+    swal({
+        title: "Confirmado",
+        text: "Se acaba de agregar un nuevo servicio!",
+        icon: "success",
+      });
 }
