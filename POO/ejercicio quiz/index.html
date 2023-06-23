@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="d-flex justify-content-center align-content-center">
@@ -33,14 +34,20 @@
                 </div>
                 <div>
                     <label for="">Respuesta Correcta</label>
-                    <input type="text" class="form-control mb-3" id="rtaCorrecta">
+                    <select name="" class="form-select" id="rtaCorrecta">
+                        <option value="">Respuesta Correcta</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                    </select>
                 </div>
                 <button type="submit" class="register-btn form-control mt-4 btnCon">Agregar tarea</button>
             </form>
         </div>
     </div>
 
-    <div class="quiz" id="quiz">
+    <div class="quiz row col-7 justify-content-center" id="quiz">
 
     </div>
 
@@ -48,3 +55,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+

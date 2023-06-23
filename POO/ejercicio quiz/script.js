@@ -17,6 +17,10 @@ class GestionPreguntas {
     agregarP(pregunta){
         this.listaP.push(pregunta)
     }
+    eliminarPregunta(index){
+        this.listaP.splice(index, 1)
+        listarPreg()
+    }
 }
 
 const preguntaN = new GestionPreguntas()
@@ -54,7 +58,7 @@ function listarPreg(){
 
     padreQuiz.innerHTML=''
 
-    preguntaN.listaP.forEach(pregunta => {
+    preguntaN.listaP.forEach((pregunta, index) => {
         const hijoQuiz = document.createElement('div')
         hijoQuiz.className = 'card';
         hijoQuiz.style.width = '18rem';
@@ -62,7 +66,10 @@ function listarPreg(){
         hijoQuiz.innerHTML = `
         <div class="card" style="width: 18rem;">
         <div class="card-body">
-        <h5 class="card-title">${pregunta.enunciadoP}</h5>
+        <h5 class="card-title">${pregunta.enunciadoP}
+        <button class="eliminarPregunta" onclick="editPreg(${index})">
+        <img src="iconoeditar.png" alt="eliminar" class="imgBorrarRuta">
+        </button></h5>
         <div class="card-text">
         <div class="form-check">
             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
@@ -89,11 +96,22 @@ function listarPreg(){
         </label>
         </div>
         </div>
+        <button class="eliminarPregunta" onclick="deletePreg(${index})">
+        <img src="papelera.png" alt="eliminar" class="imgBorrarRuta">
+        </button>
         </div>
         </div>`
         padreQuiz.appendChild(hijoQuiz)
     })
 
+}
+
+function deletePreg(index){
+    preguntaN.eliminarPregunta(index)
+    listarPreg
+}
+
+function editPreg(){
 
 }
 

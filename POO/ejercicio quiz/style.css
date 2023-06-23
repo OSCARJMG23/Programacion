@@ -1,0 +1,9 @@
+.btnCon{
+    background-color: rgb(135, 222, 189);
+}
+.eliminarPregunta{
+    background-color: transparent;
+    border: none;
+    margin-top: 1rem;
+    margin-left: 5rem;
+}
