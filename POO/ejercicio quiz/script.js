@@ -54,10 +54,14 @@ function listarPreg(){
 
     padreQuiz.innerHTML=''
 
-    preguntaN.listaP.forEach((pregunta/* ,index */)=>{
-        const hijoQuiz = `
+    preguntaN.listaP.forEach(pregunta => {
+        const hijoQuiz = document.createElement('div')
+        hijoQuiz.className = 'card';
+        hijoQuiz.style.width = '18rem';
+
+        hijoQuiz.innerHTML = `
         <div class="card" style="width: 18rem;">
-    <div class="card-body">
+        <div class="card-body">
         <h5 class="card-title">${pregunta.enunciadoP}</h5>
         <div class="card-text">
         <div class="form-check">
@@ -83,13 +87,13 @@ function listarPreg(){
         <label class="form-check-label" for="flexRadioDefault2">
         ${pregunta.opcD}
         </label>
-    </div>
         </div>
-    </div>
-    </div>`
-    padreQuiz.appendChild(hijoQuiz)
+        </div>
+        </div>
+        </div>`
+        padreQuiz.appendChild(hijoQuiz)
     })
 
-    
+
 }
 
