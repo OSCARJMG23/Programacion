@@ -41,6 +41,7 @@ formularioQuiz.addEventListener('submit', function(event){
 
     const nuevaPregunta = new Pregunta(enunciadoP , opcA, opcB, opcC, opcD, respuestaC)
     preguntaN.agregarP(nuevaPregunta)
+    listarPreg()
     formularioQuiz.reset()
 })
 
@@ -48,4 +49,47 @@ const padreQuiz = document.getElementById('quiz')
 
 /* p${pregunta.enunciadoP}
 <div class = 'from' */
+
+function listarPreg(){
+
+    padreQuiz.innerHTML=''
+
+    preguntaN.listaP.forEach((pregunta/* ,index */)=>{
+        const hijoQuiz = `
+        <div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">${pregunta.enunciadoP}</h5>
+        <div class="card-text">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+            ${pregunta.opcA}
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+            ${pregunta.opcB}
+            </label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+            ${pregunta.opcC}
+        </label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+        ${pregunta.opcD}
+        </label>
+    </div>
+        </div>
+    </div>
+    </div>`
+    padreQuiz.appendChild(hijoQuiz)
+    })
+
+    
+}
 
