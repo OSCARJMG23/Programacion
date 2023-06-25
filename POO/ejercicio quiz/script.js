@@ -25,6 +25,8 @@ class GestionPreguntas {
 
 const preguntaN = new GestionPreguntas()
 
+let indiceEdicion = -1;
+
 const formularioQuiz = document.getElementById('formularioQuiz')
 const enunciadoPregunta = document.getElementById('enunciadoPregunta')
 const opcionA = document.getElementById('rtaA')
@@ -43,8 +45,25 @@ formularioQuiz.addEventListener('submit', function(event){
     const opcD = opcionD.value
     const respuestaC = rCorrecta.value
 
-    const nuevaPregunta = new Pregunta(enunciadoP , opcA, opcB, opcC, opcD, respuestaC)
-    preguntaN.agregarP(nuevaPregunta)
+    if (indiceEdicion !== -1) {
+        const preguntaEditada = preguntaN.listaP[indiceEdicion];
+        preguntaEditada.enunciadoP = enunciadoP;
+        preguntaEditada.opcA = opcA;
+        preguntaEditada.opcB = opcB;
+        preguntaEditada.opcC = opcC;
+        preguntaEditada.opcD = opcD;
+        preguntaEditada.respuestaC = respuestaC;
+    
+        indiceEdicion = -1;
+    
+        // Cambia el texto del botón a "Agregar"
+        const btnAgregarEditar = document.getElementById('btnAgregarEditar');
+        btnAgregarEditar.textContent = 'Agregar';
+      } else {
+        const nuevaPregunta = new Pregunta(enunciadoP, opcA, opcB, opcC, opcD, respuestaC);
+        preguntaN.agregarP(nuevaPregunta);
+      }
+
     listarPreg()
     formularioQuiz.reset()
 })
@@ -111,7 +130,20 @@ function deletePreg(index){
     listarPreg
 }
 
-function editPreg(){
-
-}
+function editPreg(index) {
+    const pregunta = preguntaN.listaP[index];
+    indiceEdicion = index;
+  
+    // Cambia el texto del botón a "Editar"
+    const btnAgregarEditar = document.getElementById('btnAgregarEditar');
+    btnAgregarEditar.textContent = 'Editar';
+  
+    // Llena los campos del formulario con los valores de la pregunta a editar
+    enunciadoPregunta.value = pregunta.enunciadoP;
+    opcionA.value = pregunta.opcA;
+    opcionB.value = pregunta.opcB;
+    opcionC.value = pregunta.opcC;
+    opcionD.value = pregunta.opcD;
+    rCorrecta.value = pregunta.respuestaC;
+  }
 
