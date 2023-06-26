@@ -1,0 +1,17 @@
+Se define una clase llamada Calculator, que encapsula la funcionalidad de una calculadora. El constructor de la clase se llama cuando se crea una nueva instancia de Calculator. Dentro del constructor, se realiza lo siguiente:
+
+Se asigna el elemento del DOM con la clase .pantalla a la propiedad pantalla utilizando document.querySelector(). Este elemento representa la pantalla de la calculadora donde se mostrarán los resultados y las operaciones.
+Se asignan todos los elementos del DOM con la clase .btn a la propiedad botones utilizando document.querySelectorAll(). Estos elementos representan los botones de la calculadora.
+La clase Calculator tiene un método llamado addEventListeners(), que se encarga de agregar un event listener a cada botón de la calculadora. Este método se llama dentro del constructor de la clase. Dentro de addEventListeners(), se itera sobre todos los elementos en botones utilizando forEach(). Por cada botón, se agrega un event listener que llama a handleButtonClick() cuando se hace clic en el botón.
+
+La clase Calculator también tiene un método llamado handleButtonClick(), que maneja el evento de clic en un botón de la calculadora. Recibe el botón que se ha clicado como parámetro. Dentro de este método, se realiza lo siguiente:
+
+Se guarda el contenido del botón en la variable botonApretado utilizando textContent.
+Se utilizan condicionales if para determinar qué acción tomar dependiendo del id del botón:
+Si el id es 'C', se establece el contenido de la pantalla en '0' para restablecer la calculadora.
+Si el id es 'borrar', se verifica si el contenido de la pantalla tiene una longitud de 1 o si es igual a 'Error!'. En ese caso, se establece el contenido de la pantalla en '0'. De lo contrario, se elimina el último carácter utilizando slice() para eliminar el carácter final.
+Si el id es 'igual', se intenta evaluar el contenido de la pantalla utilizando la función eval(). Si la evaluación tiene éxito, el resultado se muestra en la pantalla. De lo contrario, se muestra el mensaje 'Error!'.
+Si ninguno de los casos anteriores se cumple, se verifica si el contenido de la pantalla es '0' o 'Error!'. En ese caso, se establece el contenido de la pantalla en botonApretado. De lo contrario, se agrega botonApretado al final del contenido existente de la pantalla.
+Al final del código, se crea una instancia de la clase Calculator llamada calculator, lo que inicia el proceso de configuración de los event listeners en los botones de la calculadora.
+
+En resumen, el código crea una clase Calculator que encapsula la funcionalidad de una calculadora. Los métodos de la clase se encargan de manejar los eventos de clic en los botones, actualizar el contenido de la pantalla y realizar las operaciones correspondientes.
