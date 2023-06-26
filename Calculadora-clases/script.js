@@ -1,4 +1,4 @@
-class Calculator {
+class Calculadora {
     constructor() {
       this.pantalla = document.querySelector('.pantalla');
       this.botones = document.querySelectorAll('.btn');
@@ -48,5 +48,5 @@ class Calculator {
   }
   
   // Uso de la calculadora
-  const calculator = new Calculator();
+  const calculator = new Calculadora();
   

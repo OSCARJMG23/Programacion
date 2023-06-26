@@ -34,6 +34,7 @@ const opcionB = document.getElementById('rtaB')
 const opcionC = document.getElementById('rtaC')
 const opcionD = document.getElementById('rtaD')
 const rCorrecta = document.getElementById('rtaCorrecta') 
+const botonStart = document.getElementById('btn-empezar')
 
 formularioQuiz.addEventListener('submit', function(event){
     event.preventDefault()
@@ -66,6 +67,8 @@ formularioQuiz.addEventListener('submit', function(event){
 
     listarPreg()
     formularioQuiz.reset()
+
+    botonStart.classList.remove('btnstart')
 })
 
 const padreQuiz = document.getElementById('quiz')
@@ -91,26 +94,26 @@ function listarPreg(){
         </button></h5>
         <div class="card-text">
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="flexRadioDefault${index}" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">A.
             ${pregunta.opcA}
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-            <label class="form-check-label" for="flexRadioDefault2">
+            <input class="form-check-input" type="radio" name="flexRadioDefault${index}" id="flexRadioDefault2" >
+            <label class="form-check-label" for="flexRadioDefault2">B.
             ${pregunta.opcB}
             </label>
         </div>
         <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-        <label class="form-check-label" for="flexRadioDefault2">
+        <input class="form-check-input" type="radio" name="flexRadioDefault${index}" id="flexRadioDefault2" >
+        <label class="form-check-label" for="flexRadioDefault2">C.
             ${pregunta.opcC}
         </label>
         </div>
         <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-        <label class="form-check-label" for="flexRadioDefault2">
+        <input class="form-check-input" type="radio" name="flexRadioDefault${index}" id="flexRadioDefault2" >
+        <label class="form-check-label" for="flexRadioDefault2">D.
         ${pregunta.opcD}
         </label>
         </div>
@@ -145,5 +148,32 @@ function editPreg(index) {
     opcionC.value = pregunta.opcC;
     opcionD.value = pregunta.opcD;
     rCorrecta.value = pregunta.respuestaC;
-  }
+}
 
+
+//Formulario para validar
+const padrePreguntas = document.getElementById('positionQuestions')
+const formularioPreguntas = document.getElementById('form-rta')
+
+botonStart.addEventListener('click',function(){
+    formularioPreguntas.classList.remove('formRta')
+    listarPregForm()
+})
+
+function listarPregForm(){
+    padrePreguntas.innerHTML = ''
+
+    preguntaN.listaP.forEach((pregunta, index) =>{
+        const hijoPreguntas = document.createElement('div')
+        hijoPreguntas.className = 'preguntas'
+
+        hijoPreguntas.innerHTML=`
+        <h3>${index+1}.${pregunta.enunciadoP}</h3>
+        <input type="radio" name="${index}">A.${pregunta.opcA}<br/>
+        <input type="radio" name="${index}">B.${pregunta.opcB}<br/>
+        <input type="radio" name="${index}">c.${pregunta.opcC}<br/>
+        <input type="radio" name="${index}">D.${pregunta.opcD}<br/>
+        `
+        padrePreguntas.appendChild(hijoPreguntas)
+    })
+}

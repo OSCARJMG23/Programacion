@@ -1,3 +1,8 @@
+.formu{
+    border: 2px solid black;
+    border-radius: 10%;
+}
+
 .btnCon{
     background-color: rgb(135, 222, 189);
 }
@@ -6,4 +11,31 @@
     border: none;
     margin-top: 1rem;
     margin-left: 5rem;
+}
+.quiz{
+    flex-direction: column;
+    gap: 2rem;
+
+}
+.btnstart{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    
+}
+.formRta{
+    display: none;
+}
+/* .btnrespu{
+    display: none;
+} */
+
+h3{
+    color: black;
+}
+.preguntas{
+    border: 2px solid black;
+    border-radius: 20px;
+    margin-top: 2rem;
+    padding: 15px;
 }
