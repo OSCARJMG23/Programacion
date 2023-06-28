@@ -169,11 +169,45 @@ function listarPregForm(){
 
         hijoPreguntas.innerHTML=`
         <h3>${index+1}.${pregunta.enunciadoP}</h3>
-        <input type="radio" name="${index}">A.${pregunta.opcA}<br/>
-        <input type="radio" name="${index}">B.${pregunta.opcB}<br/>
-        <input type="radio" name="${index}">c.${pregunta.opcC}<br/>
-        <input type="radio" name="${index}">D.${pregunta.opcD}<br/>
+        <input type="radio" name="respuesta${index}" value="A"> A.${pregunta.opcA}<br/>
+        <input type="radio" name="respuesta${index}" value="B"> B.${pregunta.opcB}<br/>
+        <input type="radio" name="respuesta${index}" value="C"> C.${pregunta.opcC}<br/>
+        <input type="radio" name="respuesta${index}" value="D"> D.${pregunta.opcD}<br/>
         `
         padrePreguntas.appendChild(hijoPreguntas)
     })
 }
+
+formularioPreguntas.addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita el envío del formulario
+  
+    // Lógica de validación de respuestas aquí
+    const respuestasSeleccionadas = [];
+  
+    preguntaN.listaP.forEach((pregunta, index) => {
+      const opciones = document.getElementsByName(`respuesta${index}`);
+      let respuestaSeleccionada = null;
+  
+      opciones.forEach(opcion => {
+        if (opcion.checked) {
+          respuestaSeleccionada = opcion.value;
+        }
+      });
+  
+      respuestasSeleccionadas.push(respuestaSeleccionada);
+    });
+  
+  
+    // Lógica para comparar las respuestas seleccionadas con las respuestas correctas y mostrar los resultados
+    
+    let puntaje = 0;
+    preguntaN.listaP.forEach((pregunta, index) => {
+      if (pregunta.respuestaC === respuestasSeleccionadas[index]) {
+        puntaje++;
+      }
+    });
+  
+    const resultado = document.createElement('p');
+    resultado.textContent = `Obtuviste un puntaje de ${puntaje} de ${preguntaN.listaP.length}.`;
+    padrePreguntas.appendChild(resultado);
+  });

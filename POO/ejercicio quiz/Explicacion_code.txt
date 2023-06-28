@@ -1,0 +1,79 @@
+El código proporcionado consta de dos clases: Pregunta y GestionPreguntas.
+
+La clase Pregunta se utiliza para representar una pregunta individual en el cuestionario. Tiene los siguientes atributos:
+
+enunciadoP: el enunciado de la pregunta.
+opcA, opcB, opcC, opcD: las opciones de respuesta A, B, C y D respectivamente.
+respuestaC: la respuesta correcta de la pregunta.
+La clase GestionPreguntas se utiliza para gestionar una lista de preguntas. Tiene los siguientes atributos y métodos:
+
+listaP: una lista que almacena las preguntas agregadas.
+
+agregarP(pregunta): un método para agregar una pregunta a la lista de preguntas.
+
+eliminarPregunta(index): un método para eliminar una pregunta de la lista de preguntas, utilizando el índice de la pregunta en la lista.
+
+Luego, se crean instancias de las clases GestionPreguntas y Pregunta para manejar las preguntas del cuestionario.
+
+Después, se obtienen referencias a elementos HTML del formulario y se agrega un evento de escucha para el evento "submit" del formulario (formularioQuiz.addEventListener('submit', function(event) {...})).
+
+Dentro del evento de escucha del formulario, se capturan los valores ingresados por el usuario para el enunciado de la pregunta, las opciones de respuesta y la respuesta correcta. Luego, se verifica si hay un índice de edición activo. Si hay un índice de edición activo, se actualizan los valores de la pregunta correspondiente en la lista de preguntas. De lo contrario, se crea una nueva instancia de Pregunta con los valores ingresados y se agrega a la lista de preguntas.
+
+Después de agregar o editar una pregunta, se llama a la función listarPreg() para mostrar las preguntas en la interfaz.
+
+La función listarPreg() recorre la lista de preguntas y crea elementos HTML para mostrar cada pregunta en la interfaz. Utiliza la propiedad innerHTML de un elemento para construir el contenido HTML con los valores de la pregunta. También se agrega un botón de eliminar (eliminarPregunta) para cada pregunta, que llama a la función deletePreg(index) para eliminar la pregunta correspondiente de la lista de preguntas.
+
+La función deletePreg(index) utiliza el método eliminarPregunta(index) de la instancia de GestionPreguntas para eliminar la pregunta de la lista y luego llama a listarPreg() para actualizar la visualización de las preguntas.
+
+La función editPreg(index) se utiliza para editar una pregunta existente. Al hacer clic en el botón de editar para una pregunta, se establece el índice de edición (indiceEdicion) en el índice de la pregunta seleccionada. Luego, los campos del formulario se llenan con los valores de la pregunta seleccionada y se cambia el texto del botón del formulario a "Editar". Esto permite al usuario editar los valores de la pregunta en lugar de agregar una nueva.
+
+A continuación, se define una función listarPregForm() que se utiliza para mostrar las preguntas en una sección de formulario para validar las respuestas. Esta función recorre la lista de preguntas y crea elementos HTML para mostrar cada pregunta con opciones de respuesta como botones de radio.
+
+Por último, se agrega un evento de escucha al formulario de validación (formularioPreguntas.addEventListener('submit', function(event) {...})). Dentro de este evento de escucha, se realiza la lógica para validar las respuestas seleccionadas por el usuario. Se recorren las preguntas y se obtienen las respuestas seleccionadas por el usuario. Luego, se comparan las respuestas seleccionadas con las respuestas correctas de las preguntas y se calcula el puntaje. El puntaje se muestra en la página mediante la creación de un elemento p y su posterior agregación al elemento con el id positionQuestions.
+
+En resumen, el código proporcionado se encarga de manejar la creación, edición, eliminación y validación de las preguntas en un cuestionario.
+
+
+
+
+
+
+Explicacion de la logica de validacion
+
+event.preventDefault();: Esta línea evita el comportamiento predeterminado de envío del formulario, lo cual es importante para que podamos realizar la validación de las respuestas sin recargar la página.
+
+const respuestasSeleccionadas = [];: Se declara una variable respuestasSeleccionadas como un arreglo vacío. Esta variable se utilizará para almacenar las respuestas seleccionadas por el usuario.
+
+preguntaN.listaP.forEach((pregunta, index) => {...}): Se itera sobre la lista de preguntas (preguntaN.listaP) utilizando el método forEach(). Por cada pregunta en la lista, se ejecuta el código dentro de las llaves.
+
+const opciones = document.getElementsByName(respuesta${index});: Se obtienen todas las opciones de respuesta correspondientes a la pregunta actual utilizando el método document.getElementsByName(). El nombre de los elementos coincide con el patrón respuesta${index}, donde index es el índice de la pregunta en la lista.
+
+let respuestaSeleccionada = null;: Se declara una variable respuestaSeleccionada y se inicializa con el valor null. Esta variable se utilizará para almacenar la respuesta seleccionada por el usuario.
+
+opciones.forEach(opcion => {...}): Se itera sobre las opciones de respuesta utilizando el método forEach(). Por cada opción de respuesta, se ejecuta el código dentro de las llaves.
+
+if (opcion.checked) {...}: Se verifica si la opción de respuesta actual está marcada (seleccionada) por el usuario utilizando la propiedad checked. Si la opción está marcada, se ejecuta el código dentro del bloque if.
+
+respuestaSeleccionada = opcion.value;: Se asigna el valor de la opción de respuesta seleccionada (opcion.value) a la variable respuestaSeleccionada.
+
+respuestasSeleccionadas.push(respuestaSeleccionada);: Se agrega la respuesta seleccionada por el usuario al arreglo respuestasSeleccionadas utilizando el método push().
+
+Se sale del bucle forEach() y se repite el proceso para la siguiente pregunta en la lista hasta que se recorran todas las preguntas.
+
+Se declara la variable puntaje y se inicializa con el valor 0. Esta variable se utilizará para almacenar el puntaje del usuario.
+
+preguntaN.listaP.forEach((pregunta, index) => {...}): Se itera sobre la lista de preguntas nuevamente utilizando el método forEach(). Por cada pregunta en la lista, se ejecuta el código dentro de las llaves.
+
+if (pregunta.respuestaC === respuestasSeleccionadas[index]) {...}: Se compara la respuesta correcta de la pregunta (pregunta.respuestaC) con la respuesta seleccionada por el usuario (respuestasSeleccionadas[index]). Si son iguales, se ejecuta el código dentro del bloque if.
+
+puntaje++;: Se incrementa el puntaje en 1.
+
+Se sale del bucle forEach() y se repite el proceso para la siguiente pregunta en la lista hasta que se recorran todas las preguntas.
+
+const resultado = document.createElement('p');: Se crea un nuevo elemento de párrafo (<p>) utilizando el método document.createElement() y se asigna a la variable resultado.
+
+resultado.textContent = Obtuviste un puntaje de ${puntaje} de ${preguntaN.listaP.length}.;: Se establece el contenido de texto del elemento resultado con un mensaje que indica el puntaje obtenido por el usuario. Se utiliza la interpolación de cadenas (${...}) para incluir el valor de puntaje y el número total de preguntas (preguntaN.listaP.length).
+
+padrePreguntas.appendChild(resultado);: Se agrega el elemento resultado como hijo del elemento con el id positionQuestions, lo cual mostrará el resultado del puntaje en la página.
+
+En resumen, este código realiza la validación de las respuestas seleccionadas por el usuario, calcula el puntaje y muestra el resultado en la página.
