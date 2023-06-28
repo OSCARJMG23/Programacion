@@ -52,4 +52,3 @@ const botonVaciar = document.getElementById('btn-vaciar')
 botonVaciar.addEventListener('click',function(){
     carrito.vaciarCarrito()
 })
-   

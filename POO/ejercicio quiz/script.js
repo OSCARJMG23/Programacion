@@ -178,6 +178,8 @@ function listarPregForm(){
     })
 }
 
+const padreResultados = document.getElementById('positionResults')
+
 formularioPreguntas.addEventListener('submit', function(event) {
     event.preventDefault(); // Evita el envío del formulario
   
@@ -206,8 +208,8 @@ formularioPreguntas.addEventListener('submit', function(event) {
         puntaje++;
       }
     });
-  
+
     const resultado = document.createElement('p');
     resultado.textContent = `Obtuviste un puntaje de ${puntaje} de ${preguntaN.listaP.length}.`;
-    padrePreguntas.appendChild(resultado);
+    padreResultados.appendChild(resultado);
   });
