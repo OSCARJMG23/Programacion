@@ -1,0 +1,16 @@
+.formu{
+    display: flex;
+    justify-content: center;
+}
+.btnCon{
+    background-color: rgb(124 227 223);
+    color: white;
+}
+.btnCon1{
+    background-color: rgb(255 185 185);
+    color: white;
+}
+.itemsCar{
+    display: flex;
+    justify-content: center;
+}

@@ -48,6 +48,7 @@ class Carro {
     carrito.agregarAlCarrito(item);
   });
 
+carrito.mostrarCarrito()
 const botonVaciar = document.getElementById('btn-vaciar')
 botonVaciar.addEventListener('click',function(){
     carrito.vaciarCarrito()
