@@ -5,12 +5,41 @@
 .btnCon{
     background-color: rgb(124 227 223);
     color: white;
+    font-size: 20px;
+    font-weight: 700;
 }
 .btnCon1{
     background-color: rgb(255 185 185);
     color: white;
+    font-size: 20px;
+    font-weight: 700;
 }
 .itemsCar{
     display: flex;
     justify-content: center;
+}
+.itemcarro{
+    margin-top: 1rem;
+    text-decoration: none;
+}
+.btn-elim{
+    margin-left: 1rem;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: #eaa4a4;
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+}
+.linea{
+    color: black;
+    width: 15%;
+}
+.btnCon2{
+    width: 15%;
+    background-color: rgb(117 227 136);
+    color: white;
+    border-radius: 2rem;
+    font-size: 20px;
+    font-weight: 700;
 }
