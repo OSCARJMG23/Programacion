@@ -1,6 +1,27 @@
-.formu{
-    display: flex;
-    justify-content: center;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.form-register{
+    width: 450px;
+    background-color: aliceblue;
+    padding: 15px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 4px;
+    box-shadow: 7px 13px 37px #000;
+}
+.form-register h1{
+    text-align:center;
+}
+.resumen{
+    width: 325px;
+    background-color: #eaa4a4;
+    padding: 15;
+    margin:auto ;
+    margin-top: 50px;
+    border-radius: 4px;
 }
 .btnCon{
     background-color: rgb(124 227 223);
@@ -35,11 +56,19 @@
     color: black;
     width: 15%;
 }
+.btnoe{
+    width: 300px;
+    margin: auto;
+    padding: 15px;
+}
 .btnCon2{
-    width: 15%;
+    width: 100%;
     background-color: rgb(117 227 136);
     color: white;
     border-radius: 2rem;
     font-size: 20px;
     font-weight: 700;
 }
+
+
+

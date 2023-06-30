@@ -15,17 +15,17 @@ formulario.addEventListener('submit', function(event){
     if(opcion==='temperatura'){
         const resultadoTemp = temperatura(parseFloat(valorConver.value))
         const resultTemp = document.createElement('p')
-        resultTemp.textContent= `La temperatura en Fahrenheit es ${resultadoTemp}`;
+        resultTemp.textContent= `La temperatura en Fahrenheit es: ${resultadoTemp}°F`;
         mostrarResultado.appendChild(resultTemp)
     }else if(opcion ==='distancia'){
         const resultadoDist = distancia(parseInt(valorConver.value))
         const resltDist = document.createElement('p')
-        resltDist.textContent=`${resultadoDist} miles`;
+        resltDist.textContent=`La distancia convertida es: ${resultadoDist} pies`;
         mostrarResultado.appendChild(resltDist);
     }else if(opcion==='peso'){
         const resultadoPeso = peso(parseInt(valorConver.value))
         const resltPeso = document.createElement('p');
-        resltPeso.textContent = `El peso equivale a: ${resultadoPeso}`;
+        resltPeso.textContent = `El peso equivale a: ${resultadoPeso} Libras`;
         mostrarResultado.appendChild(resltPeso);
     }else{
         alert("No se ha seleccionado una opción");

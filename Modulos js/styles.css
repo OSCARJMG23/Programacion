@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: linear-gradient(90deg, rgba(88,107,101,1) 0%, rgba(36,48,44,1) 50%, rgba(38,73,61,1) 100%);
+}
+.form-register{
+    width: 400px;
+    background-color: #24302c;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+}
+.option{
+    background-color: #24302c;
+    color: white;
+}
+.form-register .btn{
+    width: 100%;
+    background: #1f53c5;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 0px;
+    font-size: 16px;
+}
+.form-register h4{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.conversiones{
+    width: 350px;
+    background-color: #2f413a;
+    padding: 30px;
+    margin: auto;
+    margin-top: 80px;
+    border-radius: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
