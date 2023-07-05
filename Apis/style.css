@@ -1,0 +1,20 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(2,0,36,1) 0%,
+        rgba(73,9,121,0.8855742125951943) 0%,
+        rgba(244,0,255,1) 100%,
+        rgba(3,153,216,1) 100%
+    );
+}
+.listaPokemons{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(10rem, 1fr));
+    gap:2rem;
+    padding: 1rem;
+    text-align: center;
+}
