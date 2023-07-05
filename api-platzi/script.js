@@ -9,6 +9,7 @@ function getCharacters(done){
 
 }
 getCharacters(data=>{
+    console.log(data)
     data.results.forEach(personaje => {
         
         const article = document.createRange().createContextualFragment(/* html */

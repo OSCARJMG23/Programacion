@@ -27,6 +27,13 @@ article{
 }
 
 /* Media Query para dispositivos con un ancho máximo de 768px */
+@media (max-width: 1400px) {
+    main {
+      grid-template-columns: 1fr 1fr;
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+}  
 @media (max-width: 1000px) {
     main {
       grid-template-columns: 1fr;
