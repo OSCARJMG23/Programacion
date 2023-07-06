@@ -6,15 +6,27 @@ async function fetchData() {
     
       const data = await response.json();
       return data;
+      
     } catch (error) {
       throw 'Error al obtener los datos';
     }
+    
   }
   async function displayData() {
     try {
       const data = await fetchData();
       const dataContainer = document.getElementById('data-container');
-      dataContainer.innerText = JSON.stringify(data);
+      /* dataContainer.innerText = JSON.stringify(data);
+       */
+      console.log(data)
+      const kelvin = 273.15
+      const datosClima = `
+      <div >${data.weather[0].icon}</div>
+      <p>${Math.floor(data.main.temp - kelvin)} ºC<p>
+      <p>${data.weather[0].description}<p>
+      <p>${data.name} de ${data.sys.country}<p>
+      `
+      dataContainer.innerHTML = datosClima
     } catch (error) {
       console.error(error);
     }
