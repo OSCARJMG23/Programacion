@@ -25,7 +25,7 @@ async function fetchData() {
       </div>
       <p>${data.main.temp} ºC<p>
       <p>${data.weather[0].description}<p>
-      <p>💨 ${data.main.humidity} %</p>
+      <p>💨 ${data.wind.speed} (m/s)</p>
       <p>💧 ${data.main.humidity} %</p>
       <p>${data.name}<p>
       <p>${data.sys.country}<p>

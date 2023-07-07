@@ -59,6 +59,18 @@ button{
     margin: 2em auto 2em;
 }
 .content{
-    margin-left: 20rem;
-    margin-right: 20rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
+/* @media (min-width: 500px) {
+    .content {
+        margin-left: 5rem;
+        margin-right: 5rem;
+    }
+}  */
+/* @media (min-width: 700px) {
+    .content {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+}  */
