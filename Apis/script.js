@@ -53,4 +53,3 @@ botonesPag.addEventListener('click', (e)=>{
         buscarPokemon(value)    
     }
 })
-//https://www.youtube.com/watch?v=uk65vMJ6f7g
