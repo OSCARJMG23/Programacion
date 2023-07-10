@@ -1,0 +1,5 @@
+export const selector = document.querySelector('#selector')
+export const contenedor = document.querySelector('#contenedorTarjetas')
+export const modal = document.querySelector('#modal')
+export const carritoCompras= document.querySelector('#compras')
+export const limpiarCarrito = document.querySelector('#limpiarCarrito')
