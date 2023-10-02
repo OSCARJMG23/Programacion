@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/arteN01-48/Desktop/Programacion/app/app.csproj": {}
+    "c:\\Users\\DDR5\\Desktop\\Programacion\\app\\app.csproj": {}
   },
   "projects": {
-    "/home/arteN01-48/Desktop/Programacion/app/app.csproj": {
+    "c:\\Users\\DDR5\\Desktop\\Programacion\\app\\app.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/arteN01-48/Desktop/Programacion/app/app.csproj",
+        "projectUniqueName": "c:\\Users\\DDR5\\Desktop\\Programacion\\app\\app.csproj",
         "projectName": "app",
-        "projectPath": "/home/arteN01-48/Desktop/Programacion/app/app.csproj",
-        "packagesPath": "/home/arteN01-48/.nuget/packages/",
-        "outputPath": "/home/arteN01-48/Desktop/Programacion/app/obj/",
+        "projectPath": "c:\\Users\\DDR5\\Desktop\\Programacion\\app\\app.csproj",
+        "packagesPath": "C:\\Users\\DDR5\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\DDR5\\Desktop\\Programacion\\app\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/arteN01-48/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\DDR5\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -53,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.109/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
         }
       }
     }

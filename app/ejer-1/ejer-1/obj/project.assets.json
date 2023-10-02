@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "/home/arteN01-48/.nuget/packages/": {}
+    "C:\\Users\\DDR5\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/arteN01-48/Desktop/Programacion/app/ejer-1/ejer-1/ejer-1.csproj",
+      "projectUniqueName": "c:\\Users\\DDR5\\Desktop\\Programacion\\app\\ejer-1\\ejer-1\\ejer-1.csproj",
       "projectName": "ejer-1",
-      "projectPath": "/home/arteN01-48/Desktop/Programacion/app/ejer-1/ejer-1/ejer-1.csproj",
-      "packagesPath": "/home/arteN01-48/.nuget/packages/",
-      "outputPath": "/home/arteN01-48/Desktop/Programacion/app/ejer-1/ejer-1/obj/",
+      "projectPath": "c:\\Users\\DDR5\\Desktop\\Programacion\\app\\ejer-1\\ejer-1\\ejer-1.csproj",
+      "packagesPath": "C:\\Users\\DDR5\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\DDR5\\Desktop\\Programacion\\app\\ejer-1\\ejer-1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/arteN01-48/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\DDR5\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.109/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
       }
     }
   }
